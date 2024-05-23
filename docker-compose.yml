@@ -1,0 +1,9 @@
+services:
+  php_kata_setup:
+    build:
+      context: .
+      dockerfile: build/Dockerfile
+    container_name: php_kata_setup
+    hostname: php
+    volumes:
+      - .:/srv/php-kata-setup:delegated
