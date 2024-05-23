@@ -1,4 +1,4 @@
-# php-kata-setup
+# PRACTICAL TDD WORKSHOP: EMBRACING COLLABORATIVE LEARNING THROUGH PAIR PROGRAMMING
 
 This is a scaffolding kata setup to practice TDD in PHP.
 
@@ -34,12 +34,46 @@ composer test
   <img alt="Example Mapping" src="img/mapping.png"><br>
 </div>
 
-### Links
+<div align="center">
+  <h3>Test Desiderata</h3>
+  <img alt="Example Mapping" src="img/desiderata.png"><br>
+</div>
 
-- [TestDesiderata](https://kentbeck.github.io/TestDesiderata/)
-- Katas:
-  1. [Rock paper scissors](https://hackmd.io/@evalverde/ipc-remote-kata-1)
-  2. [Password validator kata](https://www.codurance.com/katas/password-validation)
-  3. [Guess the random number](https://www.codurance.com/katas/random-number-kata)
-  4. [Morning Routine](https://www.codurance.com/katas/morning-routine-kata)
+---
 
+## Katas
+
+### 1. [Rock paper scissors](https://hackmd.io/@evalverde/ipc-remote-kata-1)
+
+- TDD Cycle
+- Baby steps
+- Triangulation
+
+### 2. [Password validator kata](https://www.codurance.com/katas/password-validation)
+
+- Example Mapping
+- TDD Cycle
+- Baby steps
+- Triangulation
+- Test desiderata
+
+### 3. [Guess the random number](https://www.codurance.com/katas/random-number-kata)
+
+- CRC cards
+- Mock it if you own it
+- Collaborators
+- Solitary or Sociable test
+- Triangulation
+- Test desiderata
+
+### 4. [Morning Routine](https://www.codurance.com/katas/morning-routine-kata)
+
+- CRC cards
+- Mock it if you own it
+- Collaborators
+- Triangulation
+- Test desiderata
+
+---
+
+Slides: [add link]
