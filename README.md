@@ -25,7 +25,7 @@ composer test
 </div>
 
 <div align="center">
-    <h3>The 3 repetition rule on TDD - Triangulation</h3>
+    <h3>The 3-repetition rule on TDD - Triangulation</h3>
     <img alt="Triangulation" src="img/triangulation.png"><br>
 </div>
 
@@ -33,3 +33,13 @@ composer test
   <h3>Example mapping</h3>
   <img alt="Example Mapping" src="img/mapping.png"><br>
 </div>
+
+### Links
+
+- [TestDesiderata](https://kentbeck.github.io/TestDesiderata/)
+- Katas:
+  1. [Rock paper scissors](https://hackmd.io/@evalverde/ipc-remote-kata-1)
+  2. [Password validator kata](https://www.codurance.com/katas/password-validation)
+  3. [Guess the random number](https://www.codurance.com/katas/random-number-kata)
+  4. [Morning Routine](https://www.codurance.com/katas/morning-routine-kata)
+
