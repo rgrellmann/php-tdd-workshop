@@ -1,4 +1,4 @@
-FROM php:8.3-cli-alpine
+FROM php:8.3-fpm
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -13,4 +13,4 @@ RUN useradd -m dev
 
 RUN echo 'memory_limit = 2048M' >> /usr/local/etc/php/conf.d/docker-php-memlimit.ini
 
-WORKDIR /srv/php-kata-setup
+WORKDIR /srv/php-tdd-workshop
