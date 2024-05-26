@@ -1,6 +1,6 @@
 {
     "description": "A setup for PHP code katas",
-    "name": "chemaclass/php-kata-setup",
+    "name": "chemaclass/php-tdd-workshop",
     "type": "project",
     "license": "MIT",
     "keywords": [
