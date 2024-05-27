@@ -24,7 +24,7 @@ final class PasswordRequirementsValidator
             return false;
         }
 
-        if (!preg_match('/\_/', $password)) {
+        if (!str_contains($password, '_')) {
             return false;
         }
 
