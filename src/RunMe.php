@@ -6,6 +6,8 @@ namespace Kata;
 
 include __DIR__ . '/TimeProviderInterface.php';
 include __DIR__ . '/TimeProvider.php';
+include __DIR__ . '/ScheduleEntryInterface.php';
+include __DIR__ . '/ScheduleEntry.php';
 include __DIR__ . '/MorningRoutineReminder.php';
 
 

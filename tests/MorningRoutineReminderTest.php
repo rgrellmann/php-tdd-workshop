@@ -14,8 +14,10 @@ final class MorningRoutineReminderTest extends TestCase
 {
     public static function morningRoutines(): iterable
     {
-        yield 'reminder for 6 to 6:59' => ['06:05:00', 'Do exercise'];
-        yield 'reminder for 7 to 7:59' => ['07:05:00', 'Read and Study'];
+        yield 'reminder for 6 to 6:44' => ['06:05:00', 'Do exercise'];
+        yield 'reminder for 6:45 to 6:59' => ['06:50:00', 'Take Shower'];
+        yield 'reminder for 7 to 7:29' => ['07:05:00', 'Read'];
+        yield 'reminder for 7:30 to 7:59' => ['07:45:00', 'Study'];
         yield 'reminder for 8 to 8:59' => ['08:05:00', 'Have Breakfast'];
         yield 'reminder for other times' => ['10:00:00', 'No activity'];
     }
