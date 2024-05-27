@@ -10,9 +10,9 @@ class MorningRoutineReminder
         ['08:00:00', '09:00:00', 'Have Breakfast'],
     ];
 
-    private TimeProvider $timeProvider;
+    private TimeProviderInterface $timeProvider;
 
-    public function __construct(TimeProvider $timeProvider)
+    public function __construct(TimeProviderInterface $timeProvider)
     {
         $this->timeProvider = $timeProvider;
     }

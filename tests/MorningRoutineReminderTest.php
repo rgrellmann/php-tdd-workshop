@@ -22,7 +22,7 @@ final class MorningRoutineReminderTest extends TestCase
     #[DataProvider('morningRoutines')]
     public function testMorningRoutineReminder($time, $expectedReminder): void
     {
-        $timeProvider = $this->createStub(TimeProvider::class);
+        $timeProvider = $this->createStub(TimeProviderInterface::class);
         $timeProvider->method('currentTime')->willReturn(new \DateTime($time));
         $morningRoutineReminder = new MorningRoutineReminder($timeProvider);
 
