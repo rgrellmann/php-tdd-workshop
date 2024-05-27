@@ -12,11 +12,11 @@ final class PasswordRequirementsValidator
             return false;
         }
 
-        if (!preg_match('/[A-Z]/', $password)) {
+        if (!$this->stringContainsUppercaseLetter($password)) {
             return false;
         }
 
-        if (!preg_match('/[a-z]/', $password)) {
+        if (!$this->stringContainsLowercaseLetter($password)) {
             return false;
         }
 
@@ -28,6 +28,22 @@ final class PasswordRequirementsValidator
             return false;
         }
 
+        return true;
+    }
+
+    private function stringContainsUppercaseLetter(string $password): bool
+    {
+        if (!preg_match('/[A-Z]/', $password)) {
+            return false;
+        }
+        return true;
+    }
+
+    private function stringContainsLowercaseLetter(string $password): bool
+    {
+        if (!preg_match('/[a-z]/', $password)) {
+            return false;
+        }
         return true;
     }
 
