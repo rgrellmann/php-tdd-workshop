@@ -1,6 +1,6 @@
 <?php
 
-namespace KataTests;
+namespace Kata;
 
 class MorningRoutineReminder
 {

@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace KataTests;
 
-use Kata\ChangeMe;
+use Kata\MorningRoutineReminder;
+use Kata\TimeProviderInterface;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
