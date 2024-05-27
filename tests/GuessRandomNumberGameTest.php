@@ -6,6 +6,7 @@ namespace KataTests;
 
 use Kata\GuessRandomNumberGame;
 use Kata\NumberGeneratorInterface;
+use Kata\Result;
 use PHPUnit\Framework\TestCase;
 
 final class GuessRandomNumberGameTest extends TestCase
@@ -15,8 +16,32 @@ final class GuessRandomNumberGameTest extends TestCase
         $numberGenerator = $this->createStub(NumberGeneratorInterface::class);
         $numberGenerator->method('generateNumber')->willReturn(1);
 
-        $guessRandomNumberGame = new GuessRandomNumberGame($numberGenerator);
+        $guessRandomNumberGame = new GuessRandomNumberGame($numberGenerator->generateNumber());
 
-        self::assertTrue($guessRandomNumberGame->guessNumber(1));
+        self::assertSame(Result::WON, $guessRandomNumberGame->guessNumber(1));
+    }
+
+    public function testPlayerWinsOnSecondTry(): void
+    {
+        $numberGenerator = $this->createStub(NumberGeneratorInterface::class);
+        $numberGenerator->method('generateNumber')->willReturn(1);
+
+        $guessRandomNumberGame = new GuessRandomNumberGame($numberGenerator->generateNumber());
+
+        self::assertSame(Result::NUMBER_IS_LOWER,$guessRandomNumberGame->guessNumber(5));
+        self::assertSame(Result::WON, $guessRandomNumberGame->guessNumber(1));
+    }
+
+    public function testPlayerLosesIfMoreThanThreeTries(): void
+    {
+        $numberGenerator = $this->createStub(NumberGeneratorInterface::class);
+        $numberGenerator->method('generateNumber')->willReturn(1);
+
+        $guessRandomNumberGame = new GuessRandomNumberGame($numberGenerator->generateNumber());
+
+        self::assertSame(Result::NUMBER_IS_LOWER,$guessRandomNumberGame->guessNumber(5));
+        self::assertSame(Result::NUMBER_IS_LOWER, $guessRandomNumberGame->guessNumber(3));
+        self::assertSame(Result::LOST,$guessRandomNumberGame->guessNumber(2));
+        self::assertSame(Result::TOO_MANY_TRIES, $guessRandomNumberGame->guessNumber(1));
     }
 }

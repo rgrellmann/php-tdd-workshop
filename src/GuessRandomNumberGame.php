@@ -6,16 +6,32 @@ namespace Kata;
 
 final class GuessRandomNumberGame
 {
-    private NumberGeneratorInterface $numberGenerator;
+    private int $number;
 
-    public function __construct(NumberGeneratorInterface $numberGenerator)
+    private int $numberOfTries = 0;
+
+    public function __construct(int $number)
     {
-        $this->numberGenerator = $numberGenerator;
+        $this->number = $number;
     }
 
-    public function guessNumber(int $guessedNumber): bool
+    public function guessNumber(int $guessedNumber): Result
     {
-        return true;
+        $this->numberOfTries++;
+
+        if ($this->numberOfTries > 3) {
+            return Result::TOO_MANY_TRIES;
+        }
+        if ($this->number === $guessedNumber) {
+            return Result::WON;
+        }
+
+        if ($this->numberOfTries === 3) {
+            return Result::LOST;
+        }
+        return $guessedNumber > $this->number
+            ? Result::NUMBER_IS_LOWER
+            : Result::NUMBER_IS_GREATER;
     }
 
 }
