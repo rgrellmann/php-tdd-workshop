@@ -32,6 +32,19 @@ final class GuessRandomNumberGameTest extends TestCase
         self::assertSame(Result::WON, $guessRandomNumberGame->guessNumber(1));
     }
 
+    public function testPlayerWinsOnThirdTry(): void
+    {
+        $numberGenerator = $this->createStub(NumberGeneratorInterface::class);
+        $numberGenerator->method('generateNumber')->willReturn(1);
+
+        $guessRandomNumberGame = new GuessRandomNumberGame($numberGenerator->generateNumber());
+
+        self::assertSame(Result::NUMBER_IS_LOWER,$guessRandomNumberGame->guessNumber(5));
+        self::assertSame(Result::NUMBER_IS_LOWER, $guessRandomNumberGame->guessNumber(4));
+        self::assertSame(Result::WON, $guessRandomNumberGame->guessNumber(1));
+
+    }
+
     public function testPlayerLosesIfMoreThanThreeTries(): void
     {
         $numberGenerator = $this->createStub(NumberGeneratorInterface::class);
