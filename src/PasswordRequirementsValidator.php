@@ -6,8 +6,28 @@ namespace Kata;
 
 final class PasswordRequirementsValidator
 {
-    public function validate(): bool
+    public function validate(string $password): bool
     {
-        return false;
+        if (8 >= strlen($password)) {
+            return false;
+        }
+
+        if (!preg_match('/[A-Z]/', $password)) {
+            return false;
+        }
+
+        if (!preg_match('/[a-z]/', $password)) {
+            return false;
+        }
+
+        if (!preg_match('/\d/', $password)) {
+            return false;
+        }
+
+        if (!preg_match('/\_/', $password)) {
+            return false;
+        }
+
+        return true;
     }
 }

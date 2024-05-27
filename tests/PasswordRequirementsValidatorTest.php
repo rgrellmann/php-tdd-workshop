@@ -11,25 +11,39 @@ use PHPUnit\Framework\TestCase;
 
 final class PasswordRequirementsValidatorTest extends TestCase
 {
-    public static function dataProvider(): iterable
+    public static function invalidPwdDataProvider(): iterable
     {
-        yield "password too short" => ['rock_1A', false];
-        yield "password does not contain capital letter" => ['paperpaper1_', false];
-        yield "password does not contain lowercase letter" => ['SCISSORSSC1_ISSORS', false];
-        yield "password does not contain numbers" => ['ssSCISS_ORSSCISSORS', false];
-        yield "password does not contain underscore" => ['ssS112CISSORSSCISSORS', false];
-        yield "password does match all requirements" => ['ssS112CISSO_RSSCISSORS', true];
+        yield "password too short" => ['rock_1A'];
+        yield "password does not contain capital letter" => ['paperpaper1_'];
+        yield "password does not contain lowercase letter" => ['SCISSORSSC1_ISSORS'];
+        yield "password does not contain numbers" => ['ssSCISS_ORSSCISSORS'];
+        yield "password does not contain underscore" => ['ssS112CISSORSSCISSORS'];
+    }
+
+    public static function validPwdDataProvider(): iterable
+    {
+        yield "password matches all requirements" => ['ssS112CISSO_RSSCISSORS'];
     }
 
     #[Test]
-    #[DataProvider("dataProvider")]
-    public function test_given_password_matching_all_requirements_when_validate_true_is_returned(
-        string $password,
-        bool   $expectedResult
+    #[DataProvider("invalidPwdDataProvider")]
+    public function test_given_password_is_invalid_when_validate_false_is_returned(
+        string $password
     ): void
     {
         $validator = new PasswordRequirementsValidator();
 
-        self::assertSame($expectedResult, $validator->validate($password));
+        self::assertFalse($validator->validate($password));
+    }
+
+    #[Test]
+    #[DataProvider("validPwdDataProvider")]
+    public function test_given_password_is_valid_when_validate_true_is_returned(
+        string $password
+    ): void
+    {
+        $validator = new PasswordRequirementsValidator();
+
+        self::assertTrue($validator->validate($password));
     }
 }
