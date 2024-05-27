@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PasswordRequirementsValidatorTest extends TestCase
 {
-    public static function invalidPwdDataProvider(): iterable
+    public static function invalidPasswordDataProviderValidatorTypeOne(): iterable
     {
         yield "password too short" => ['rock_1A'];
         yield "password does not contain capital letter" => ['paperpaper1_'];
@@ -20,13 +20,13 @@ final class PasswordRequirementsValidatorTest extends TestCase
         yield "password does not contain underscore" => ['ssS112CISSORSSCISSORS'];
     }
 
-    public static function validPwdDataProvider(): iterable
+    public static function validPasswordDataProviderValidatorTypeOne(): iterable
     {
         yield "password matches all requirements" => ['ssS112CISSO_RSSCISSORS'];
     }
 
     #[Test]
-    #[DataProvider("invalidPwdDataProvider")]
+    #[DataProvider("invalidPasswordDataProviderValidatorTypeOne")]
     public function test_given_password_is_invalid_when_validate_false_is_returned(
         string $password
     ): void
@@ -37,7 +37,7 @@ final class PasswordRequirementsValidatorTest extends TestCase
     }
 
     #[Test]
-    #[DataProvider("validPwdDataProvider")]
+    #[DataProvider("validPasswordDataProviderValidatorTypeOne")]
     public function test_given_password_is_valid_when_validate_true_is_returned(
         string $password
     ): void
