@@ -20,14 +20,29 @@ final class PasswordRequirementsValidator
             return false;
         }
 
+        if (!$this->stringContainsNumber($password)) {
+            return false;
+        }
+
+        if (!$this->stringContainsUnderscore($password)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private function stringContainsNumber(string $password): bool
+    {
         if (!preg_match('/\d/', $password)) {
             return false;
         }
-
-        if (!str_contains($password, '_')) {
+        return true;
+    }
+    private function stringContainsUnderscore(string $password): bool
+    {
+        if (!str_contains($password, "_")) {
             return false;
         }
-
         return true;
     }
 }
